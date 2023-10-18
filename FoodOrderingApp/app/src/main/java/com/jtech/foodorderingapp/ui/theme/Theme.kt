@@ -14,14 +14,19 @@ import androidx.core.view.WindowCompat
 private val DarkColorScheme = darkColorScheme(
     primary = Orange,
     secondary = OrangeMedium,
-    tertiary = OrangeLight,
-    outline = ShadowColor
+    tertiary = TagTextColor,
+    secondaryContainer = OrangeLight,
+    tertiaryContainer = TagBgColor,
+    outline = ShadowColor,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Orange,
     secondary = OrangeMedium,
-    tertiary = OrangeLight
+    tertiary = TagTextColor,
+    secondaryContainer = OrangeLight,
+    tertiaryContainer = TagBgColor,
+    outline = ShadowColor,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
