@@ -40,4 +40,10 @@ object DummyData {
         Food("African", false),
         Food("Snacks", false)
     )
+
+    val ons = listOf(
+        AddOn("Small - 6\"",8.0),
+        AddOn("Medium - 10\"",8.0),
+        AddOn("Large - 14\"",8.0)
+    )
 }

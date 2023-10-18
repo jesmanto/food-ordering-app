@@ -23,14 +23,16 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.jtech.foodorderingapp.ui.theme.FoodOrderingAppTheme
 
 @Composable
-fun FoodItemCard(modifier: Modifier = Modifier, food: Food) {
+fun FoodItemCard(modifier: Modifier = Modifier, food: Food, onItemClicked: ()->Unit) {
 
     Column(
         modifier = if (food.selected) modifier
             .shadow(
+                shape = RoundedCornerShape(12.dp),
                 elevation = 14.dp,
                 spotColor = MaterialTheme.colorScheme.outline,
                 ambientColor = MaterialTheme.colorScheme.outline
@@ -42,7 +44,7 @@ fun FoodItemCard(modifier: Modifier = Modifier, food: Food) {
             )
             .background(
                 color = MaterialTheme.colorScheme.secondary,
-                shape = RoundedCornerShape(size = 12.dp)
+                shape = RoundedCornerShape(12.dp)
             )
             .padding(8.dp)
         else modifier
@@ -58,9 +60,9 @@ fun FoodItemCard(modifier: Modifier = Modifier, food: Food) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            text = food.title, style = MaterialTheme.typography.bodyMedium.copy(
-                fontWeight = FontWeight.Bold, fontFamily = FontFamily(Font(R.font.mulish))
-            )
+            text = food.title, style = if (!food.selected) MaterialTheme.typography.bodyMedium.copy(
+                fontWeight = FontWeight.Bold, fontFamily = FontFamily(Font(R.font.mulish)), fontSize = 14.sp
+            ) else MaterialTheme.typography.titleLarge.copy(fontSize = 14.sp)
         )
     }
 }
@@ -70,6 +72,6 @@ fun FoodItemCard(modifier: Modifier = Modifier, food: Food) {
 fun FoodItemPreview() = FoodOrderingAppTheme {
     FoodItemCard(
         modifier = Modifier,
-        Food("Pizza", true)
+        Food("Pizza", true),{}
     )
 }
